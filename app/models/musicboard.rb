@@ -1,0 +1,2 @@
+class Musicboard < ApplicationRecord
+end
