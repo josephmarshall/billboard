@@ -1,0 +1,16 @@
+<h1>Artists</h1>
+<% @artists.each do |artist| %>
+  <h2><%= artist.name %></h2>
+  <p><%= artist.genre %></p>
+<span class="ui button gray">
+<%= link_to 'Show', artist_path(artist) %>
+</span>
+<span class="ui button gray">
+<%= link_to 'Edit', edit_artist_path(artist) %>
+</span>
+<span class="ui button gray">
+<%= link_to 'Delete', artist_path(artist), method: :delete, data: {confirm: "Are you sure?" } %>
+</span>
+<% end %>
+<hr />
+<%= link_to 'Create New', new_artist_path %>

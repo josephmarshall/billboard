@@ -1,2 +1,15 @@
-<h1>Musicboards#show</h1>
-<p>Find me in app/views/musicboards/show.html.erb</p>
+<h1><%= @musicboard.name %></h1>
+<div class="ui relaxed divided list">
+  <% @songs.each do |song| %>
+    <div class="item"> 
+    <i class="large smile middle aligned icon"></i>
+      <div class="content">
+        <a class="header"><%= song.name %> by <%= song.artist.name %></a>
+      <div class="description">Album: <%= song.album %>
+      </div>
+    </div>
+    </div>
+  <% end %>
+
+
+

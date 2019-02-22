@@ -1,0 +1,8 @@
+<h1><%= @artist.name ? "Edit" : "Create New" %> Artist</h1>
+<%= form_with(model: @artist, local: true, class: "ui form") do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name, autofocus: true %>
+<%= f.label :genre %>
+<%= f.text_field :genre %>
+<%= f.submit %>
+<% end %>

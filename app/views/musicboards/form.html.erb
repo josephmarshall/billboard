@@ -1,0 +1,6 @@
+<h1><%= @musicboard.name ? "Edit" : "Create New" %> Billboard</h1>
+<%= form_with(model: @musicboard, local: true, class: "ui form") do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name, autofocus: true %>
+<%= f.submit %>
+<% end %>
