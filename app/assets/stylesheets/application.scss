@@ -1,1 +1,6 @@
+$import-google-fonts: true !default;
+$font-url: 'https://fonts.googleapis.com/css?family=Cairo:400,700,400italic,700italic&subset=latin,latin-ext' !default;
+$font-name: 'Cairo' !default;
+$font-family: $font-name, 'Helvetica Neue', Arial, Helvetica, sans-serif !default;
 @import "semantic-ui";
+
