@@ -1,10 +1,33 @@
-<h1>Billboards</h1>
+<h1 style="text-align: center; font-size: 3em; padding: 20px">Music Billboards</h1>
+<div class="ui grid">
 <% @musicboards.each do |board| %>
-<h2><%= board.name %></h2>
-<%= link_to 'Show', musicboard_path(board) %>
-<%= link_to 'Edit', edit_musicboard_path(board) %>
-<%= link_to 'Delete', musicboard_path(board), method: :delete, data: {confirm: "Are you sure?"} %>
-<% end %>
+<div class="four wide column">
+<div style="border: solid gray 1px; padding: 10px; border-radius: 10px;">
+<div style="text-align: center;"><span style="font-size: 1.5em"><%= link_to board.name, musicboard_path(board) %></span>
+<span style="padding: 5px 0px 5px 10px;"><%= link_to 'edit', edit_musicboard_path(board) %></span>
+<span><%= link_to 'x', musicboard_path(board), method: :delete, data: {confirm: "Delete #{board.name} billboard?"} %></p></span>
+</div>
 <hr />
-<%= link_to 'Create New', new_musicboard_path %>
 
+<div>
+  <% board.songs.each do |song| %>
+    <% artist = song.artist %>
+    <i class="trophy middle aligned icon"></i>
+        <a class="header"><%= link_to song.name, artist_song_path(artist, song) %> by <%= song.artist.name %></a>
+      <div>Album: <%= song.album %>
+      </div>
+  <% end %>
+</div>
+
+</div>
+</div>
+<% end %>
+</div>
+<hr />
+<div style="text-align:center;">
+<%= link_to 'Create New', new_musicboard_path %>
+</div>
+<hr />
+<div>
+<span><%= button_to 'Generate Test Data', musicboards_generate_test_data_path, method: :post %></span>
+<span><%= button_to 'Delete All Data', musicboards_delete_all_data_path, method: :post %></span>

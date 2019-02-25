@@ -1,6 +1,6 @@
 class ArtistsController < ApplicationController
   before_action :get_artist, only: [:show, :edit, :update, :destroy]
-  before_action :get_all_musicboards
+  before_action :get_all_musicboards, only: [:show, :edit, :update, :destroy]
   
     def index
       @artists = Artist.all
@@ -40,7 +40,9 @@ class ArtistsController < ApplicationController
       redirect_to artists_path
     end
   
-  
+    def comp
+    end
+
     private
   
     def artist_params

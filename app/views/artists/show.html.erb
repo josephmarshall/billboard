@@ -3,10 +3,10 @@
 <div class="ui relaxed divided list">
   <% @artist.songs.sort.each do |song| %>
     <div class="item"> 
-     <i class="large music middle aligned icon"></i>
-      <div class="content">
+     <i class="large bullhorn middle aligned icon"></i>
+      <div class="content text">
       <a class="header"><%= song.name %></a>
-        <span><%= link_to "Play", artist_song_path(@artist, song) %></span>
+        <span><%= link_to "Play", artist_song_path(@artist, song), method: :get %></span>
         <span><%= link_to "Edit", edit_artist_song_path(@artist, song) %></span>
         <span><%= link_to "Delete", artist_song_path(@artist, song), method: :delete, data: {confirm: "Are you sure?"} %></span>
         <span><%= form_with(model: [@artist, song], local: true) do |f| %>

@@ -1,15 +1,19 @@
 <div class="ui body">
 <h1 class="ui body"><%= @artist.name %></h1>
 <h1><%= @song.name ? "Edit" : "Create New" %> Song</h1>
-<%= form_with(model: [@artist, @song], local: true, class: "ui form")  do |f| %>
+<%= form_with(model: [@artist, @song], local: true, class: "ui form horizontal")  do |f| %>
 <%= f.label :name %>
 <%= f.text_field :name, autofocus: true %>
 <%= f.label :album %>
 <%= f.text_field :album %>
+<div style="padding: 20px 0px;">
 <%= f.label :musicboard_id %>
 <% @sorted = @musicboards.map{ |n| [n.name, n.id]}.sort %>
 <% @sorted.unshift([nil, nil]) %>
 <%= f.select :musicboard_id, @sorted %>
+</div>
+<div>
 <%= f.submit %>
+</div>
 <% end %>
 </div>

@@ -1,6 +1,6 @@
 class SongsController < ApplicationController
 layout 'application'
-before_action :get_song, only: [:show, :edit, :update, :destroy]
+before_action :get_song, only: [:show, :edit, :update, :destroy, :remove_from_billboard]
 before_action :get_artist  
 before_action :get_all_musicboards
 #before_action Musicboardscontroller::get_all_musicboards
@@ -56,5 +56,4 @@ before_action :get_all_musicboards
   def get_all_musicboards
     @musicboards = Musicboard.all
   end
-
 end
