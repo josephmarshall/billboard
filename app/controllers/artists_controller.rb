@@ -54,7 +54,7 @@ class ArtistsController < ApplicationController
     end
 
     def get_all_musicboards
-      @musicboards = Musicboard.all
+      @musicboards = current_user.musicboards
     end
     
   end

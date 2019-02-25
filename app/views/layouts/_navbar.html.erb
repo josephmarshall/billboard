@@ -1,4 +1,6 @@
 <hr />
 <%= link_to 'Billboards', musicboards_path %>
 <%= link_to 'Artists', artists_path %>
+<%= button_to "Log Out", destroy_user_session_path, method: :delete %>
+<h2>Welcome <%= current_user ? current_user.email : "" %></h2>
 <hr />

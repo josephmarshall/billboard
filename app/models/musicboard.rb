@@ -1,3 +1,4 @@
 class Musicboard < ApplicationRecord
-  has_many :songs#, through: :artist
+  has_many :songs
+  belongs_to :user
 end

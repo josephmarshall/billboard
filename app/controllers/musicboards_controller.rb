@@ -2,7 +2,7 @@ class MusicboardsController < ApplicationController
   before_action :get_musicboard, only: [:show, :edit, :update, :destroy]
 
   def index
-    @musicboards = Musicboard.all
+    @musicboards = current_user.musicboards
   end
 
   def new
@@ -11,7 +11,7 @@ class MusicboardsController < ApplicationController
   end
 
   def create
-    @musicboard = Musicboard.new(musicboard_params)
+    @musicboard = current_user.musicboards.new(musicboard_params)
     if @musicboard.save
       redirect_to musicboards_path
     else
@@ -45,10 +45,10 @@ class MusicboardsController < ApplicationController
     Artist.delete_all
     Musicboard.delete_all
     
-    Musicboard.create(id: 1, name: "100 Greatest Hits")
-    Musicboard.create(id: 2, name: "80's Killer Classics")
-    Musicboard.create(id: 3, name: "My Favorite Songs")
-    Musicboard.create(id: 4, name: "Ultimate Rock & Roll")
+    current_user.musicboards.create(id: 1, name: "100 Greatest Hits")
+    current_user.musicboards.create(id: 2, name: "80's Killer Classics")
+    current_user.musicboards.create(id: 3, name: "My Favorite Songs")
+    current_user.musicboards.create(id: 4, name: "Ultimate Rock & Roll")
     
     for x in 1..20 do 
       Artist.create({id: x, name: Faker::Name.name, genre: Faker::Commerce.material}) 
@@ -81,7 +81,7 @@ class MusicboardsController < ApplicationController
   end
 
   def get_musicboard
-    @musicboard = Musicboard.find(params[:id])
+    @musicboard = current_user.musicboards.find(params[:id])
   end
 
 end

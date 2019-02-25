@@ -54,6 +54,6 @@ before_action :get_all_musicboards
   end
 
   def get_all_musicboards
-    @musicboards = Musicboard.all
+    @musicboards = current_user.musicboards
   end
 end
